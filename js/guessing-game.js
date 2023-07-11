@@ -42,6 +42,11 @@ button.addEventListener('click', function () {
     score--;
     newScore.textContent(score);
   }
+
+  if(score == 0){
+    properties.style.backgroundColor = "red";
+    changeMsg("You are out of time");
+  }
 });
 
 
