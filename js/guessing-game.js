@@ -14,7 +14,7 @@ const input = document.querySelector('#myInput');
 
  function changeMsg (input){
     let reponse = document.getElementById("reponse");
-    response.textContent = input;
+    reponse.textContent = input;
 {
 
 }
@@ -23,7 +23,7 @@ const input = document.querySelector('#myInput');
 const button = document.getElementById("button");
 
 button.addEventListener('click', function () {
-  if(input != num)
+  if(typeof input === "number")
   {
     changeMsg("Please enter a valid number");
   }
@@ -40,7 +40,7 @@ button.addEventListener('click', function () {
   else{
     let newScore = document.getElementById("score");
     score--;
-    newScore.textContent(score);
+    newScore.textContent("");
   }
 
   if(score == 0){
