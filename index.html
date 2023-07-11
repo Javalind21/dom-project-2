@@ -10,5 +10,33 @@
   <body>
     <!-- <script src='js/guessing-game.js'></script> -->
     <!-- uncomment the script tag above when you are ready to add JavaScript to your document -->
+    <h1>Guessing Game</h1>
+    <p>You will need to guess a number between 0-100</p>
+   <br><br>
+    <input type="number" placeholder="Enter a number" id="myInput">
+    <button id="button">check</button>
+    <br><br>
+    <div>
+      Score: <p id="score"> 5</p>
+    </div>
+    
+    <div>
+      Highscore: <p id="high-score"> 0</p>
+    </div>
+
+    <p id="reponse"></p>
+    <br><br>
+    <div id="rules" class="rule-set">
+        <ol>
+            <li>Choose a number between 1-100</li>
+            <li>Press the check button</li>
+            <li>Start with a score of 10</li>
+            <li>Everytime you guess incorrectly, you lose a point</li>
+            <li>If your score reaches 0, you lose</li>
+            <li> Try to beat your highscore</li>
+        </ol>
+    </div>
+
+
   </body>
 </html>

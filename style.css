@@ -1,1 +1,13 @@
 /* Write your CSS code in this file */
+*{
+    text-align: center;
+    background-color: blueviolet;
+    color: white;
+    font-size: larger;
+}
+
+.rule-set{
+    border: 1px solid red;
+    padding: 0;
+    list-style-position: inside;
+}
