@@ -9,8 +9,13 @@ a user clicks a button or adds a guess to the input field.
 let score = 5;
 let highscore = 0;
 let randomNum = Math.floor(Math.random() * 101);
+ let newHighScore = document.getElementById("high-score");
+let newScore = document.getElementById("score");
 
-const input = document.querySelector('#myInput');
+const input = document.getElementById("myInput");
+
+newInput = Number(input);
+
 
  function changeMsg (input){
     let reponse = document.getElementById("reponse");
@@ -20,34 +25,62 @@ const input = document.querySelector('#myInput');
 }
 }
 
+function toCheck(input){
+  
+}
+
 const button = document.getElementById("button");
 
 button.addEventListener('click', function () {
-  if(typeof input === "number")
+ 
+  if(typeof(newInput) === Number)
   {
     changeMsg("Please enter a valid number");
+    
   }
-  else if(input == randomNum){
+  else if(newInput === randomNum)
+  {
     changeMsg("Correct Answer");
+    const properties = document.getElementById('property');
     properties.style.backgroundColor = "green";
     let newElement = document.createElement("p");
     newElement.textContent = randomNum;
     document.body.appendChild(newElement);
     highscore++;
-    let newHighScore = document.getElementById("high-score");
-    newScore.textContent(newHighScore);
+   
+    newScore.textContent = newHighScore;
+    
   }
   else{
-    let newScore = document.getElementById("score");
+    console.log(typeof(newInput));
+   
     score--;
-    newScore.textContent("");
+    newScore.textContent = score;
+  }
+
+  if(newInput > randomNum){
+   
+
+    changeMsg("Too High");
+  }
+  else{
+   
+    changeMsg("Too Low");
   }
 
   if(score == 0){
+    const properties = document.getElementById('property');
     properties.style.backgroundColor = "red";
     changeMsg("You are out of time");
+    return 0;
   }
-});
+
+});   
+
+
+
+
+console.log(randomNum);
 
 
 
