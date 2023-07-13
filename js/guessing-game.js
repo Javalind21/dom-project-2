@@ -14,7 +14,7 @@ let newScore = document.getElementById("score");
 
 const input = document.getElementById("myInput");
 
-newInput = parseInt(input, 10);
+newInput = Number(input);
 
 const button = document.getElementById("button");
 
@@ -30,7 +30,7 @@ const button = document.getElementById("button");
 
 button.addEventListener('click', function () {
  
-  if(typeof(newInput) !== "number")
+  if(typeof newInput !== "number")
   {
     changeMsg("Please enter a valid number");
     console.log(typeof(newInput));
@@ -45,23 +45,24 @@ button.addEventListener('click', function () {
     newElement.textContent = randomNum;
     document.body.appendChild(newElement);
     if(score > highscore){
-    highscore = score
-    newScore.textContent = highscore;
+     highscore = score
+      newScore.textContent = highscore;
     }
   }
   else if (newInput !== randomNum){
+     score--;
+    newScore.textContent = score;
     if(score == 0){
-    changeMsg("You have lost");
-    button.disable = true;
+      changeMsg("You have lost");
+      button.disable = true;
    }
    else if(newInput > randomNum){
       changeMsg("Too High");
    }
    else{
-    changeMsg("Too Low");
+      changeMsg("Too Low");
    }
-    score--;
-    newScore.textContent = score;
+   
   }
 
 });   
