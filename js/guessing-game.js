@@ -14,8 +14,9 @@ let newScore = document.getElementById("score");
 
 const input = document.getElementById("myInput");
 
-newInput = Number(input);
+newInput = parseInt(input, 10);
 
+const button = document.getElementById("button");
 
  function changeMsg (input){
     let reponse = document.getElementById("reponse");
@@ -25,17 +26,14 @@ newInput = Number(input);
 }
 }
 
-function toCheck(input){
-  
-}
 
-const button = document.getElementById("button");
 
 button.addEventListener('click', function () {
  
-  if(typeof(newInput) === Number)
+  if(typeof(newInput) !== "number")
   {
     changeMsg("Please enter a valid number");
+    console.log(typeof(newInput));
     
   }
   else if(newInput === randomNum)
@@ -46,33 +44,24 @@ button.addEventListener('click', function () {
     let newElement = document.createElement("p");
     newElement.textContent = randomNum;
     document.body.appendChild(newElement);
-    highscore++;
-   
-    newScore.textContent = newHighScore;
-    
+    if(score > highscore){
+    highscore = score
+    newScore.textContent = highscore;
+    }
   }
-  else{
-    console.log(typeof(newInput));
-   
+  else if (newInput !== randomNum){
+    if(score == 0){
+    changeMsg("You have lost");
+    button.disable = true;
+   }
+   else if(newInput > randomNum){
+      changeMsg("Too High");
+   }
+   else{
+    changeMsg("Too Low");
+   }
     score--;
     newScore.textContent = score;
-  }
-
-  if(newInput > randomNum){
-   
-
-    changeMsg("Too High");
-  }
-  else{
-   
-    changeMsg("Too Low");
-  }
-
-  if(score == 0){
-    const properties = document.getElementById('property');
-    properties.style.backgroundColor = "red";
-    changeMsg("You are out of time");
-    return 0;
   }
 
 });   
